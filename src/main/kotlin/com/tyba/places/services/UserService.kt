@@ -31,8 +31,6 @@ class UserService: UserDetailsService {
     }
 
     fun create(user: User): User {
-        transactionService.create(Transaction(action = Actions.CREATE_USER))
-
         user.id = null
         user.password = bCryptPasswordEncoder.encode(user.password)
 
