@@ -1,4 +1,27 @@
 # Places
+Actualmente la aplicación está conectada a Postgresql, pero basta con descomentar
+```
+Archivo application.properties
+------------------------------
+spring.datasource.url=jdbc:h2:mem:testdb
+
+Archivo build.gradle.kts
+------------------------------
+runtimeOnly("com.h2database:h2")
+```
+y comentar las líneas
+```
+Archivo application.properties
+------------------------------
+spring.datasource.url=jdbc:postgresql://host:5432/places
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.username=homestead
+spring.datasource.password=secret
+
+Archivo build.gradle.kts
+------------------------------
+implementation("org.postgresql:postgresql")
+```
 
 ## Servicios 🚀
 A continuación se listan los llamados a los servicios probados en ambiente local
